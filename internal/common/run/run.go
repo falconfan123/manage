@@ -16,7 +16,6 @@ func Run(r *gin.Engine, serverName string, addr string) {
 		Addr:    addr,
 		Handler: r,
 	}
-	//保证下面的优雅启停
 	go func() {
 		logrus.Printf("%s running in %s \n", serverName, srv.Addr)
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
